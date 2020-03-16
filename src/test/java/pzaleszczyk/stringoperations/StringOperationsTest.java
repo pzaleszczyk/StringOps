@@ -1,14 +1,15 @@
-package pzaleszczyk.stringoperations;
+package src.test.java.pzaleszczyk.stringoperations;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
+import src.main.java.pzaleszczyk.stringoperations.StringOperations;
 
 
 
@@ -35,7 +36,9 @@ public class StringOperationsTest
 		".,.,'..'",
 		",LOL,",
 		"LOL,,LOL",
-		"Łał,ŁeŁ,ŁałŁeŁ"
+		"Łał,ŁeŁ,ŁałŁeŁ",
+		",,",
+		"'',,"
 		})
     public void concat(String a, String b, String result) {
     	assertEquals(result,op.concat(a,b));
@@ -48,7 +51,8 @@ public class StringOperationsTest
     	"1Lol2,2loL1", 
     	"Sp@ecialC1har, rah1Claice@pS",
     	"  as  asd,dsa  sa  ",
-    	","
+    	",",
+    	"'',''"
     	})
     public void reverse(String a, String result) {
     	assertEquals(result,op.reverse(a));
@@ -59,11 +63,13 @@ public class StringOperationsTest
     @ParameterizedTest(name = "Checking if {0} is palindrome.")
     @CsvSource({ 
     	"kobyłamamałybok,true", 
+    	"a,true", 
     	"byłamamałyb,true",
     	"test palindrome,false",
     	"devillived,true",
-    	"31243!@#$,$#@!34213",
-    	",true"
+    	"'31243!@#$',false",
+    	",true",
+    	"'',true"
     	})
     public void palindrome(String a, Boolean result) {
     	assertEquals(result,op.isPalindrome(a));
