@@ -1,4 +1,5 @@
-package pzaleszczyk.stringoperations;
+package src.main.java.pzaleszczyk.stringoperations;
+
 import java.util.ArrayList;
 import java.util.List;
 
