@@ -6,7 +6,7 @@ cache:
 
 deploy:
   provider: script
-  script: "mvn deploy"
+  script: "cd stringoperations && mvn deploy"
   skip_cleanup: true
   on:
     tags: true
